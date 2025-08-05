@@ -1,10 +1,10 @@
 # Stock Sentimental Prediction based on SEP
 
-#### 💡 Introduction
+### 💡 Introduction
 
 "Summarize-Explain-Predict" [(SEP)](https://github.com/koa-fin/sep) model from the paper ["Learning to Generate Explainable Stock Predictions"](https://arxiv.org/abs/2402.03659) offers a framework for processing collections of text data and making binary stock price predictions (positive/ negative) with explanations. It uses a general purpose large LLM model (ChatGPT) in the cloud to train a local language model for the specific task of stock price prediction. This framework demonstrates the power of language model in capturing the abstract sentiment and stock price implication from text data, which can be extended to more extensive use in financial market. The explanations it provides help human analysts justify predictions and gain new insights during analysis. Detailed logic and explanations on how the SEP model works are provided in the "Project Description" section below.
 
-#### 💡 Improvements made in this repo
+### 💡 Improvements made in this repo
 
 The SEP model originally uses tweets about targeted companies from Twitter as input. However, since X.com (Twitter) made significant changes to its API and blocked third-party scraping tools like Snscrape, scraping tweets and fetching search results has become much more difficult. To address this, I wrote a data collection script (`collect_data.ipynb`) that gathers news headlines from Google Finance News and uses them as text input for the SEP model. These news headlines serve a similar role to tweets but are much more readily available. The script can be easily extended to collect other types of textual data by following the format in `collect_data.ipynb`. This not only fills a gap in the official SEP repository, which does not provide data collection code, but also makes the framework more generalizable to various kinds of text data.
 
@@ -52,7 +52,7 @@ Cuda 11.8 is required. This repo can only run in linux system. Other environment
 # Conda Environment Setup (more recommended)
 conda env create -f environment.yml
 
-#OR by pip
+# OR by pip
 pip install -r requirements.txt
 ```
 
@@ -75,11 +75,13 @@ For inference/ evaluation of the trained models, please run the `evaluate_custom
 
 Example text input - 5 days of tweets on Apple Inc. (Xₜ⁻₅ to Xₜ⁻₁): <br />
 
-Day -5: “Apple’s Q2 earnings beat analyst expectations.” <br />
-Day -4: “iPhone 16 preorder numbers are record-breaking.” <br />
-Day -3: “Regulatory concerns over App Store policies in EU.” <br />
-Day -2: “Apple CEO expresses concerns over slowing China sales.” <br />
-Day -1: “New iPad Pro sold out within hours of release.” <br />
+```
+Day -5: “Apple’s Q2 earnings beat analyst expectations.”
+Day -4: “iPhone 16 preorder numbers are record-breaking.”
+Day -3: “Regulatory concerns over App Store policies in EU.”
+Day -2: “Apple CEO expresses concerns over slowing China sales.”
+Day -1: “New iPad Pro sold out within hours of release."
+```
 
 ### Stage 1: Supervised Fine-Tuning (SFT)
 
@@ -91,6 +93,7 @@ Day -1: “New iPad Pro sold out within hours of release.” <br />
 
 #### Example:
 
+```
 Input data to LLM: the 5-day tweets given above (Xₜ)
 
 LLM output (Yₜ = (label, explanation)):
@@ -98,6 +101,7 @@ LLM output (Yₜ = (label, explanation)):
     (ii) Explanation: “Apple’s strong earnings and product demand outweigh short-term concerns about regulation and China sales.”
 
 ✅ Suppose this is correct (label is Positive), we save this (Xₜ, Yₜ) pair and use it to train an initial SFT model.
+```
 
 > 📌 Remarks: The positive/ negative price prediction label is given by stock price movement in the price data collected
 
