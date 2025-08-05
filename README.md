@@ -56,11 +56,11 @@ conda env create -f environment.yml
 pip install -r requirements.txt
 ```
 
-#### Data collections
+### Data collections
 
 After setting up the environment as suggested in the "Enviornment Set-Up" section above, you can run the `collect_data.ipynb` to collect stock price data and News headline data for desired stock in a specified date range. The data collected will be stored in the data directory. 
 
-#### Training and Inference (Evaluation)
+### Training and Inference (Evaluation)
 
 You can run the `train_customized_data.ipynb` notebook for training. You will need to enter your API key in the ipynb notebook in order to use the OPENAI api. The trained models will be saved in the `saved_models` directory. 
 
