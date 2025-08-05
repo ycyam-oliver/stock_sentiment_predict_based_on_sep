@@ -1,8 +1,10 @@
 # Stock Sentimental Prediction based on SEP
 
-## Introduction and Improvements made in this repo
+#### Introduction
 
-"Summarize-Explain-Predict" (SEP) model [repo link](https://github.com/koa-fin/sep) from the paper "Learning to Generate Explainable Stock Predictions" [paper link] (https://arxiv.org/abs/2402.03659) offers a framework for processing collections of text data and making binary stock price predictions (positive/ negative) with explanations. It uses a general purpose large LLM model (ChatGPT) in the cloud to train a local language model for the specific task of stock price prediction. This framework demonstrates the power of language model in capturing the abstract sentiment and stock price implication from text data, which can be extended to more extensive use in financial market. The explanations it provides help human analysts justify predictions and gain new insights during analysis. Detailed logic and explanations on how the SEP model works are provided in the "Project Description" section below.
+"Summarize-Explain-Predict" (SEP) model [repo link](https://github.com/koa-fin/sep) from the paper "Learning to Generate Explainable Stock Predictions" [paper link](https://arxiv.org/abs/2402.03659) offers a framework for processing collections of text data and making binary stock price predictions (positive/ negative) with explanations. It uses a general purpose large LLM model (ChatGPT) in the cloud to train a local language model for the specific task of stock price prediction. This framework demonstrates the power of language model in capturing the abstract sentiment and stock price implication from text data, which can be extended to more extensive use in financial market. The explanations it provides help human analysts justify predictions and gain new insights during analysis. Detailed logic and explanations on how the SEP model works are provided in the "Project Description" section below.
+
+#### Improvements made in this repo
 
 The SEP model originally uses tweets about targeted companies from Twitter as input. However, since X.com (Twitter) made significant changes to its API and blocked third-party scraping tools like Snscrape, scraping tweets and fetching search results has become much more difficult. To address this, I wrote a data collection script (`collect_data.ipynb`) that gathers news headlines from Google Finance News and uses them as text input for the SEP model. These news headlines serve a similar role to tweets but are much more readily available. The script can be easily extended to collect other types of textual data by following the format in `collect_data.ipynb`. This not only fills a gap in the official SEP repository, which does not provide data collection code, but also makes the framework more generalizable to various kinds of text data.
 
@@ -12,7 +14,6 @@ I reorganized the SEP training and inference (evaluation) code (in `train_custom
 
 ### Directory Structure
 ```
-
 ├── # Main codes (in jupyter notebook format)
 ├── collect_data.ipynb # main code to collect (1) Stock Price info & (2) News headlines
 ├── train_customized_data.ipynb # code to train the SEP model (OPENAI api key needed in training)
@@ -34,7 +35,6 @@ I reorganized the SEP training and inference (evaluation) code (in `train_custom
 ├── explain_module
 ├── summarize_module
 └── utils
-
 ```
 - In the `data` directory, some data of NVDA from 2025 July 16 to 24 are present in the `price` and `tweet` directories as examples. 
 
