@@ -2,7 +2,7 @@
 
 #### Introduction
 
-"Summarize-Explain-Predict" (SEP) model [repo link](https://github.com/koa-fin/sep) from the paper "Learning to Generate Explainable Stock Predictions" [paper link](https://arxiv.org/abs/2402.03659) offers a framework for processing collections of text data and making binary stock price predictions (positive/ negative) with explanations. It uses a general purpose large LLM model (ChatGPT) in the cloud to train a local language model for the specific task of stock price prediction. This framework demonstrates the power of language model in capturing the abstract sentiment and stock price implication from text data, which can be extended to more extensive use in financial market. The explanations it provides help human analysts justify predictions and gain new insights during analysis. Detailed logic and explanations on how the SEP model works are provided in the "Project Description" section below.
+"Summarize-Explain-Predict" [(SEP)](https://github.com/koa-fin/sep) model from the paper ["Learning to Generate Explainable Stock Predictions"](https://arxiv.org/abs/2402.03659) offers a framework for processing collections of text data and making binary stock price predictions (positive/ negative) with explanations. It uses a general purpose large LLM model (ChatGPT) in the cloud to train a local language model for the specific task of stock price prediction. This framework demonstrates the power of language model in capturing the abstract sentiment and stock price implication from text data, which can be extended to more extensive use in financial market. The explanations it provides help human analysts justify predictions and gain new insights during analysis. Detailed logic and explanations on how the SEP model works are provided in the "Project Description" section below.
 
 #### Improvements made in this repo
 
@@ -140,7 +140,7 @@ Initialize policy π_RL with the weights of M_E <br />
 
 ## Future Improvements
 
-- The sentimental prediction from SEP model can be used together as the price data in a time series for short-term stock price prediction (like the use in a previous repo of mine [repo link](https://github.com/ycyam-oliver/Transformer-Stock))
+- The sentimental prediction from SEP model can be used together as the price data in a time series for short-term stock price prediction (like the use in a previous [repo](https://github.com/ycyam-oliver/Transformer-Stock) of mine)
 
 - Instead of the expensive ChatGPT model, other open-source LLM model on clouds can also be used as teacher model, which should makes it more economical in training
 
