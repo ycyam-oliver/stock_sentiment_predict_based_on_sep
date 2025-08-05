@@ -1,0 +1,13 @@
+name: sep
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - cudatoolkit=11.8
+  - python=3.10
+  - ipywidgets
+  - conda-forge::pytables
+  - ipykernel
+  - git
+  - anaconda::widgetsnbextension
+prefix: /home/yc_yam/anaconda3/envs/sep
